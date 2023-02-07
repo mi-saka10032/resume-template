@@ -1,0 +1,118 @@
+---
+import Avatar from "../side/Avatar.svelte";
+import BaseInfo from "../side/BaseInfo.svelte";
+import Contact from "../side/Contact.svelte";
+import SkillPoint from "../side/SkillPoint.svelte";
+import SkillStack from "../side/SkillStack.svelte";
+import Education from "../main/Education.svelte";
+import Work from "../main/Work.svelte";
+import Project from "../main/Project.svelte";
+import RightAside from "../side/RightAside.svelte";
+import config from "../config";
+
+import "../assets/css/typo.css";
+import "../assets/css/font-awesome.min.css";
+import "../style/index.scss";
+
+const {
+  title,
+  avatar,
+  baseInfo,
+  contacts,
+  skills,
+  skillStack,
+  workInfo,
+  educations,
+  projects,
+  evaluations,
+  rightAside,
+  year,
+  month,
+  day,
+} = config;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>{title}</title>
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+  </head>
+
+  <body>
+    <header class="header"></header>
+
+    <article class="container">
+      <section class="side" id="side">
+        <!-- 个人肖像 -->
+        <Avatar {...avatar} client:load />
+
+        <!-- 基本信息 -->
+        <BaseInfo baseInfo={baseInfo} />
+
+        <!-- 联系方式 -->
+        <Contact contacts={contacts} />
+
+        <!-- 技能点 -->
+        <SkillPoint skills={skills} />
+
+        <!-- <section class="qrcode info-unit">
+          <h2><i class="fa fa-qrcode" aria-hidden="true"></i>二维码</h2>
+          <hr />
+        </section> -->
+
+        <!-- 技术栈 -->
+        <SkillStack {skillStack} />
+      </section>
+
+      <section class="main">
+        <!-- 教育经历 -->
+        <Education {educations} />
+
+        <!-- 工作经历 -->
+        <Work {workInfo} />
+
+        <!-- 项目经验 -->
+        <Project {projects} />
+
+        <!-- 自我评价 -->
+        <section class="work info-unit">
+          <h2>
+            <i class="fa fa-pencil" aria-hidden="true"></i>自我评价/期望
+          </h2>
+          <hr />
+          <p>{evaluations.map((item) => <div>{item}</div>)}</p>
+        </section>
+      </section>
+    </article>
+
+    <footer class="footer">
+      <p>
+        © {year}
+        {avatar.name}.文档最后更新时间为
+        <time>{year}年{month}月{day}日</time>.
+      </p>
+    </footer>
+
+    <!-- 侧栏 -->
+    <RightAside {rightAside} />
+  </body>
+</html>

@@ -59,7 +59,7 @@ const educations: Education[] = [
     title: "XXXX大学 - XXX专业（硕士）",
     startTime: "201X.9",
     endTime: "201X.7",
-    education: `专业排名
+    education: `专业排名11
     <mark>X/XX</mark
     >，期间发表国际会议英文摘要X篇，国内核心期刊文章X篇（其中第一作者X篇），获XXX，XXX2次，XXX2次。(此处根据自身情况填写，可以突出自己的亮点，或者跟求职目标相关的内容)`,
   },
